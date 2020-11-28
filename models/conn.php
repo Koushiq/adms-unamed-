@@ -19,11 +19,5 @@
     {
        return oci_fetch_array($res, OCI_ASSOC+OCI_RETURN_NULLS);
     }
-    
-
-    function executeNonquery()
-    {
-
-    }
 
 ?>
