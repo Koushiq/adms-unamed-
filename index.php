@@ -11,6 +11,7 @@
              
              if(!empty($row))
              {
+                 $_SESSION["usertype"]=$row["USERTYPE"];
                  $_SESSION["username"]=$row["USERNAME"];
                 header("location:".$row["USERTYPE"].".php");
              }
@@ -62,7 +63,9 @@
             </tr>
             <tr>
                 <td><?php echo $loginerr ;?></td>
+               
             </tr>
+            <tr> <td><a href="registration.php">Register Here</a></td></tr>
         </table>
        </fieldset>
     </form>
