@@ -1,0 +1,2 @@
+insert query with time stamping 
+insert into users values ('koushiq1234','customer','Mushfiqur','Rahman','1234',TO_TIMESTAMP('2020-11-28','YYYY-MM-DD HH24:MI:SS.FF'),NULL,NULL,NULL);
