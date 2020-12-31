@@ -31,7 +31,7 @@
             $rowCount=get(execute("select * from users where username='".$_POST['username']."' "));
             if(empty($rowCount))
             {
-                $sql= "insert into users values ('".$_POST['username']."','customer','".$_POST['firstname']."','".$_POST['lastname']."','".$_POST['password']."', TO_TIMESTAMP('".date("Y-m-d")."','YYYY-MM-DD HH24:MI:SS.FF'),'pending',NULL,NULL) ";
+                $sql= "insert into users values ('".$_POST['username']."','Customer','".$_POST['firstname']."','".$_POST['lastname']."','".$_POST['password']."', TO_TIMESTAMP('".date("Y-m-d")."','YYYY-MM-DD HH24:MI:SS.FF'),'pending',NULL,NULL) ";
                 execute($sql);
                 $registrationErr="Account Added !";
             }
