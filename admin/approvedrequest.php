@@ -14,11 +14,11 @@
         echo "update users set status='".$_GET['status']."' where username='".$_GET['username']."' ";
         execute("update users set status='".$_GET['status']."', actionby='".$_SESSION['username']."' where username='".$_GET['username']."' ");
 
-        header("location:pendingrequest.php");
+        header("location:approvedrequest.php");
     }
 
    
-    $res=execute("select * from users where status='pending' or status='invalid' ");
+    $res=execute("select * from users where status='valid' and usertype='Customer' ");
     //print_r($row);
     
 ?>
@@ -66,10 +66,7 @@
                         <td>'.$row['REGISTERDATE'].'</td>
                         <td>'.$row['STATUS'].'</td>
                         <td>
-                            <a href="pendingrequest.php?username='.$row['USERNAME'].'&status=valid">
-                                Approve |
-                            </a>
-                            <a href="pendingrequest.php?username='.$row['USERNAME'].'&status=invalid">
+                            <a href="approvedrequest.php?username='.$row['USERNAME'].'&status=invalid">
                                 Reject
                             </a>
                         </tr> ';

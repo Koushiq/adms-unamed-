@@ -5,32 +5,28 @@
             userStatus varchar2(20) := ''; 
             BEGIN 
             SELECT status into userStatus from users where username='".$_SESSION['username']."';
-                
             RETURN userStatus; 
             END; ";
-    //echo $sql;
-  
+
     execute($sql);
 
-
-    $sql = "DECLARE 
+    $sql = "DECLARE
             c varchar2(20); 
             BEGIN 
                 c := validUser(); 
-                dbms_output.put_line(c); 
+                dbms_output.put_line(c);
             END; ";
 
-        //print_r(getPlSqlData($sql));
-    $data=  getPlSqlData($sql);
+    $data= getPlSqlData($sql);
     
     if($data[0]=='pending')
     {
        session_destroy();
-       echo  "<script>
-       alert('registration not approved');
-       window.location.href='index.php';
+       echo  
+       "<script>
+                alert('registration not approved');
+                window.location.href='index.php';
        </script>";
-       
     }
    
 ?>
