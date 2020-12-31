@@ -4,7 +4,7 @@
     include("../models/conn.php");
     include("../auth/validateauth.php");
     include("../layout/headerhome.php");
-    if($_SESSION['usertype']!="admin")
+    if($_SESSION['usertype']!="Admin")
     {
         header("location:logout.php");
     }
@@ -12,7 +12,7 @@
     if(isset($_GET['username']) && isset($_GET['status']))//check if admin approves or rejects 
     {
         echo "update users set status='".$_GET['status']."' where username='".$_GET['username']."' ";
-        execute("update users set status='".$_GET['status']."' where username='".$_GET['username']."' ");
+        execute("update users set status='".$_GET['status']."', actionby='".$_SESSION['username']."' where username='".$_GET['username']."' ");
 
         header("location:pendingrequest.php");
     }
@@ -63,7 +63,7 @@
                         <td>'.$row['USERTYPE'].'</td>
                         <td>'.$row['FIRSTNAME'].'</td>
                         <td>'.$row['LASTNAME'].'</td>
-                        <td>'.$row['REGISTEREDAT'].'</td>
+                        <td>'.$row['REGISTERDATE'].'</td>
                         <td>'.$row['STATUS'].'</td>
                         <td>
                             <a href="pendingrequest.php?username='.$row['USERNAME'].'&status=valid">
@@ -75,10 +75,6 @@
                         </tr> ';
                 }
             ?>
-           
-        
-      
-    
       </table>
 </body>
 </html>
